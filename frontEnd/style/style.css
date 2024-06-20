@@ -1,0 +1,57 @@
+header,
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header>img {
+    width: 100%;
+    height: 100%;
+    max-width: 120px;
+    max-height: 120px;
+    margin-left: 15%;
+}
+
+h1 {
+    margin: auto;
+}
+
+header div {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+header div img:hover {
+    cursor: pointer;
+}
+
+header div p {
+    margin: 1rem;
+}
+
+header div div {
+    justify-content: center; 
+    border-radius: 50%; 
+
+}
+
+header div div:hover { 
+    cursor: pointer;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}

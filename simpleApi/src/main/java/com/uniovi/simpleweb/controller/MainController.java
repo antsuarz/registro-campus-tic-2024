@@ -15,9 +15,10 @@ public class MainController{
     @Autowired
     private  AuthenticationService authenticationService;
 
-    @PostMapping("/login")
+    private boolean isAuthenticated;
+    @PostMapping(value = "/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest request){
-        boolean isAuthenticated = authenticationService.authenticate(request.getUsername(), request.getPassword());
+        isAuthenticated = authenticationService.authenticate(request.getUsername(), request.getPassword());
 
         if (isAuthenticated) {
             return ResponseEntity.ok("Login successful");
@@ -26,5 +27,19 @@ public class MainController{
         }
     }
 
+    @GetMapping(value = "/authenticated")
+    public ResponseEntity<String> isAuthenticated(){
+        if (isAuthenticated) {
+            return ResponseEntity.ok("Authenticated");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not Authenticated");
+        }
+    }
+
+    @PostMapping(value = "/logOut")
+    public ResponseEntity<String> logOut(){
+        isAuthenticated = false;
+        return ResponseEntity.ok("Logged Out");
+    }
 
 }
