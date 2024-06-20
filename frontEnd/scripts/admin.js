@@ -3,7 +3,7 @@ checkAuthentication();
 
 function checkAuthentication() {
     console.log("auth");
-    fetch('http://localhost:8080/authenticated', {
+    fetch('http://156.35.98.159:8080/authenticated', {
         method: 'GET',
         credentials: 'same-origin',
         headers: {

@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', function(event) {
 
     console.log(loginRequest);
 
-    fetch('http://localhost:8080/login', {
+    fetch('http://156.35.98.159:8080/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
