@@ -27,6 +27,16 @@ public class MainController{
         }
     }
 
+    @GetMapping(value = "/r2d2")
+    public ResponseEntity<String> r2d2(@RequestBody LoginRequest request){
+        boolean authenticated = authenticationService.authenticate(request.getUsername(), request.getPassword());
+        if (authenticated) {
+            return ResponseEntity.ok("piripipipipipiri");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("nope");
+        }
+    }
+
     @GetMapping(value = "/authenticated")
     public ResponseEntity<String> isAuthenticated(){
         if (isAuthenticated) {
